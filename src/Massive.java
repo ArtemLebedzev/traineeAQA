@@ -2,8 +2,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Massive {
-    public String[][] createMassive(int a, int b) throws MyArraySizeException {
-        Scanner scanner = new Scanner(System.in);
+    /*public String[][] createMassive(int a, int b) throws MyArraySizeException {
+        Scanner = new Scanner(System.in);
         if(a != 4 || b != 4) {
             throw new MyArraySizeException("Incorrect massive size");
         }
@@ -15,24 +15,26 @@ public class Massive {
             }
         }
         return twoDimensionalMassive;
-    }
+    }*/
 
     public int sumElementsOfMassive(String[][] twoDimensionalMassive) throws MyArraySizeException, MyArrayDataException {
-        int parseNumber;
-        int summary = 0;
+        int parseNumber, summary = 0, i = 0, j = 0;
         if(twoDimensionalMassive.length !=4 || twoDimensionalMassive[0].length != 4) {
             throw new MyArraySizeException("Incorrect massive size");
         }
         for(String[] row: twoDimensionalMassive)
         {
+            j = 0;
             for(String element: row) {
                 try {
                     parseNumber = Integer.parseInt(element);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Parsing element incorrect", e);
+                    throw new MyArrayDataException(STR."Parsing element incorrect. Massive \{i + 1}, element \{j + 1}", e);
                 }
+                j++;
                 summary += parseNumber;
             }
+            i++;
         }
         return summary;
     }
