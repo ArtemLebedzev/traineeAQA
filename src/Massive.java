@@ -18,8 +18,8 @@ public class Massive {
     }*/
 
     public int sumElementsOfMassive(String[][] twoDimensionalMassive) throws MyArraySizeException, MyArrayDataException {
-        int parseNumber, summary = 0, i = 0, j = 0;
-        if(twoDimensionalMassive.length !=4 || twoDimensionalMassive[0].length != 4) {
+        int parseNumber, summary = 0, i=0, j;
+        if(twoDimensionalMassive.length !=4) {
             throw new MyArraySizeException("Incorrect massive size");
         }
         for(String[] row: twoDimensionalMassive)
@@ -33,6 +33,9 @@ public class Massive {
                 }
                 j++;
                 summary += parseNumber;
+            }
+            if(twoDimensionalMassive[i].length !=4) {
+                throw new MyArraySizeException("Incorrect massive size");
             }
             i++;
         }
