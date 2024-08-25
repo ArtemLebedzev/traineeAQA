@@ -1,19 +1,28 @@
-import java.util.Arrays;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        Massive massive = new Massive();
-        String[][] massive0 = {{"1","2"},{"1","2"}};
-        String[][] massive1 = {{"1","1","1","1"},{"1","1","1","1"},{"1","1","2","1"},{"1","1","1","1"}};
-        /*try {
-            massive1 = massive.createMassive(4,4);
-        } catch (MyArraySizeException e) {
-            throw new RuntimeException(e);
-        }*/
-        try {
-            System.out.println(massive.sumElementsOfMassive(massive1));
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            throw new RuntimeException(e);
+        WordsUniqueCounter wordsUniqueCounter = new WordsUniqueCounter();
+        PhoneBook phoneBook = new PhoneBook();
+
+        wordsUniqueCounter.add("Car");
+        wordsUniqueCounter.add("Table");
+        wordsUniqueCounter.add("Stone");
+        wordsUniqueCounter.add("Smoke");
+        wordsUniqueCounter.add("Table");
+        for(int i = 0; i < 5; i++){
+            wordsUniqueCounter.add("Bowl");
         }
-        massive.displayMassive(massive1);
+
+        wordsUniqueCounter.countUniqueWords();
+
+        phoneBook.add("Иванов", "123-456");
+        phoneBook.add("Иванов", "987-654");
+        phoneBook.add("Петров", "111-222");
+
+        System.out.println("***PhoneBook****");
+        System.out.println(phoneBook.get("Иванов"));
+        System.out.println(phoneBook.get("Петров"));
+
     }
 }
