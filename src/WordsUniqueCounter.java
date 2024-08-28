@@ -25,7 +25,7 @@ public class WordsUniqueCounter {
                 }
             }
             if(!setList.contains(list.get(i))){
-                System.out.println(STR."the word \"\{list.get(i)}\" counter is \{counter}");
+                System.out.printf("the word \"%s\" counter is %d\n", list.get(i), counter);
             }
             setList.add(list.get(i));
         }
