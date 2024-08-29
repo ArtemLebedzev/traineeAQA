@@ -15,5 +15,17 @@
         <value />
       </option>
     </inspection_tool>
+    <inspection_tool class="groupsTestNG" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="groups">
+        <value>
+          <list size="4">
+            <item index="0" class="java.lang.String" itemvalue="negativeTests" />
+            <item index="1" class="java.lang.String" itemvalue="PositiveTests" />
+            <item index="2" class="java.lang.String" itemvalue="boundaryTests" />
+            <item index="3" class="java.lang.String" itemvalue="positiveTests" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
   </profile>
 </component>
