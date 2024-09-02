@@ -1,15 +1,11 @@
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 
 public class MtsReplenishTest {
     WebDriver driver;
@@ -23,11 +19,9 @@ public class MtsReplenishTest {
     @BeforeEach
     void setupTest() {
         driver = new ChromeDriver();
-        driver.manage().timeouts().pageLoadTimeout(10000,
-                TimeUnit.MILLISECONDS);
-        driver.manage().timeouts().setScriptTimeout(5000,
-                TimeUnit.MILLISECONDS);
-        wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(20));
     }
 
     @AfterEach
@@ -51,12 +45,40 @@ public class MtsReplenishTest {
         Assertions.assertTrue(elements.size() > 0);
     }
 
-
     @Test
     public void testIsLinkClickable(){
         driver.get("https://www.mts.by/");
         Assertions.assertDoesNotThrow(() -> {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Подробнее о сервисе']")));
         }, "The link did not become clickable within the timeout period.");
+    }
+
+    @Test
+    public void testIsButtonClickable() {
+        driver.get("https://www.mts.by/");
+
+        try {
+            WebElement cookieButton = driver.findElement(By.xpath("//button[text()='Принять']"));
+            if (cookieButton.isDisplayed()) {
+                cookieButton.click();
+            }
+        } catch (NoSuchElementException e) {
+        }
+
+        WebElement inputPhone = driver.findElement(By.id("connection-phone"));
+        WebElement inputSum = driver.findElement(By.id("connection-sum"));
+        WebElement inputEmail = driver.findElement(By.id("connection-email"));
+        WebElement button = driver.findElement(By.xpath("//button[text()='Продолжить']"));
+
+        inputPhone.sendKeys("297777777");
+        inputSum.sendKeys("499.99");
+        inputEmail.sendKeys("artem180420044@gmail.com");
+        button.click();
+
+        Assertions.assertDoesNotThrow(() -> {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe")));
+        });
     }
 }
