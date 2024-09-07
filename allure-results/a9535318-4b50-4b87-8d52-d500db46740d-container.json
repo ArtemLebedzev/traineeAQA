@@ -1,0 +1,1 @@
+{"uuid":"a9535318-4b50-4b87-8d52-d500db46740d","name":"traineeAQA","children":["4541f85a-fa14-4260-8fba-57646b30a2fe"],"befores":[],"afters":[{"name":"clearCookiesAndLocalStorage","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1725561212214,"stop":1725561212242}],"start":1725561187588,"stop":1725561212243}
