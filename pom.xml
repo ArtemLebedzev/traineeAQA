@@ -70,6 +70,11 @@
             <artifactId>selenium-java</artifactId>
             <version>4.24.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.4.3</version>
+        </dependency>
         <!-- WebDriverManager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -82,6 +87,11 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.11.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.0</version>
         </dependency>
     </dependencies>
 
