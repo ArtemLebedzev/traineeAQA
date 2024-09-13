@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Maven ###
+/target
+/allure-results
+/.allure
