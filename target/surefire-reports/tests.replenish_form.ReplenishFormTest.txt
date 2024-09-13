@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: tests.replenish_form.ReplenishFormTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 62.23 s -- in tests.replenish_form.ReplenishFormTest
