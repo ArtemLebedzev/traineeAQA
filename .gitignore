@@ -29,6 +29,6 @@ bin/
 .DS_Store
 
 ### Maven ###
-/target
-/allure-results
-/.allure
+target/
+allure-results/
+.allure/
