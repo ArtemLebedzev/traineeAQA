@@ -1,8 +1,0 @@
-constants\Constants$ConfigVariable.class
-methods\Methods.class
-pages\mts_replenish\MTSReplenishPage.class
-pages\mts_replenish_frame\MTSReplenishFramePage.class
-pages\base\BasePage.class
-common\CommonActions.class
-constants\Constants$TimeoutVariable.class
-constants\Constants.class
